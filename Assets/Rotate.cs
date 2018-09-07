@@ -3,22 +3,20 @@ using System.Collections;
 
 public class Rotate : MonoBehaviour
 {
-    public float moveSpeed = 10f;
     public float turnSpeed = 50f;
 
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
-            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-
-        if (Input.GetKey(KeyCode.DownArrow))
-            transform.Translate(-Vector3.forward * moveSpeed * Time.deltaTime);
-
-        if (Input.GetKey(KeyCode.LeftArrow))
+    
             transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
 
-        if (Input.GetKey(KeyCode.RightArrow))
+      
             transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
+       
+        //Don't copy numbers exactly
+        if (transform.position.y > 8)
+            transform.localPosition += new Vector3(0,-8,0)
+
     }
 }
